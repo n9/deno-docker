@@ -23,9 +23,5 @@ RUN useradd --uid 1993 --user-group deno \
 ENV DENO_DIR /deno-dir/
 ENV DENO_INSTALL_ROOT /usr/local
 
-COPY ./_entry.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
-
-
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["deno"]
 CMD ["run", "https://deno.land/std/examples/welcome.ts"]
